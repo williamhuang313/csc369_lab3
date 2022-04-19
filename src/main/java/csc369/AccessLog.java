@@ -32,7 +32,7 @@ public class AccessLog {
 	private IntWritable result = new IntWritable();
     
         @Override
-	protected void reduce(Text word, Iterable<IntWritable> intOne,
+	protected void reduce(Text hostname, Iterable<IntWritable> intOne,
 			      Context context) throws IOException, InterruptedException {
             int sum = 0;
             Iterator<IntWritable> itr = intOne.iterator();
@@ -41,7 +41,7 @@ public class AccessLog {
                 sum  += itr.next().get();
             }
             result.set(sum);
-            context.write(word, result);
+            context.write(hostname, result);
        }
     }
 

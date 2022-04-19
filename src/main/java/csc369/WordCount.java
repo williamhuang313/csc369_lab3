@@ -37,7 +37,7 @@ public class WordCount {
             int sum = 0;
             Iterator<IntWritable> itr = intOne.iterator();
         
-            while (itr.hasNext()){
+            while (itr.hasNext()) {
                 sum  += itr.next().get();
             }
             result.set(sum);
