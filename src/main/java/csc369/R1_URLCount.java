@@ -24,7 +24,7 @@ public class R1_URLCount {
 	    String[] sa = value.toString().split(" ");
 	    Text url_path = new Text();
 	    url_path.set(sa[6]);
-	    context.write(url_path, one);
+	    context.write(one, url_path);
         }
     }
 
