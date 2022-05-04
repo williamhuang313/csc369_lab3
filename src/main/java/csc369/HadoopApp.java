@@ -13,6 +13,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
+// test comment
+
 public class HadoopApp {
 
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
