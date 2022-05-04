@@ -10,7 +10,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class R1_URLCount {
+public class R2_HTTPCount {
 
     public static final Class OUTPUT_KEY_CLASS = Text.class;
     public static final Class OUTPUT_VALUE_CLASS = IntWritable.class;
@@ -22,9 +22,9 @@ public class R1_URLCount {
 	protected void map(LongWritable key, Text value,
 			   Context context) throws IOException, InterruptedException {
 	    String[] sa = value.toString().split(" ");
-	    Text url_path = new Text();
-	    url_path.set(sa[6]);
-	    context.write(url_path, one);
+	    Text http = new Text();
+	    http.set(sa[7]);
+	    context.write(http, one);
         }
     }
 
@@ -40,7 +40,7 @@ public class R1_URLCount {
                 sum  += itr.next().get();
             }
             result.set(sum);
-            context.write(url_path, result);
+            context.write(http, result);
        }
     }
 
