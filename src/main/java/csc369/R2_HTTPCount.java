@@ -32,7 +32,7 @@ public class R2_HTTPCount {
 	private IntWritable result = new IntWritable();
     
         @Override
-	protected void reduce(Text url_path, Iterable<IntWritable> intOne, Context context) throws IOException, InterruptedException {
+	protected void reduce(Text http, Iterable<IntWritable> intOne, Context context) throws IOException, InterruptedException {
             int sum = 0;
             Iterator<IntWritable> itr = intOne.iterator();
         
