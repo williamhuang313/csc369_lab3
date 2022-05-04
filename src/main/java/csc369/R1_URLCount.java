@@ -40,7 +40,7 @@ public class R1_URLCount {
                 sum  += itr.next().get();
             }
             result.set(sum);
-            context.write(result, url_path);
+            context.write(url_path, result);
        }
     }
 
