@@ -24,8 +24,9 @@ public class R5_MonthYearCount {
 	    String[] sa = value.toString().split(" ");
 	    Text month_year = new Text();
 
-        String sa2 = sa[3].split(":")[0];//.split("/")[1];
-	    month_year.set(sa2);
+        String sa2 = sa[3].split(":")[0];
+        String sa3 = sa2.split("/")[0];
+	    month_year.set(sa3);
 	    context.write(month_year, one);
         }
     }
