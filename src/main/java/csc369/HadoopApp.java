@@ -50,6 +50,21 @@ public class HadoopApp {
 	    job.setMapperClass(R3_HostnameBytes.MapperImpl.class);
 	    job.setOutputKeyClass(R3_HostnameBytes.OUTPUT_KEY_CLASS);
 	    job.setOutputValueClass(R3_HostnameBytes.OUTPUT_VALUE_CLASS);
+	} else if ("R4_URLClientCount".equalsIgnoreCase(otherArgs[0])) {
+	    job.setReducerClass(R4_URLClientCount.ReducerImpl.class);
+	    job.setMapperClass(R4_URLClientCount.MapperImpl.class);
+	    job.setOutputKeyClass(R4_URLClientCount.OUTPUT_KEY_CLASS);
+	    job.setOutputValueClass(R4_URLClientCount.OUTPUT_VALUE_CLASS);
+	} else if ("R5_MonthYearCount".equalsIgnoreCase(otherArgs[0])) {
+	    job.setReducerClass(R5_MonthYearCount.ReducerImpl.class);
+	    job.setMapperClass(R5_MonthYearCount.MapperImpl.class);
+	    job.setOutputKeyClass(R5_MonthYearCount.OUTPUT_KEY_CLASS);
+	    job.setOutputValueClass(R5_MonthYearCount.OUTPUT_VALUE_CLASS);
+	} else if ("R6_CalenderBytes".equalsIgnoreCase(otherArgs[0])) {
+	    job.setReducerClass(R6_CalenderBytes.ReducerImpl.class);
+	    job.setMapperClass(R6_CalenderBytes.MapperImpl.class);
+	    job.setOutputKeyClass(R6_CalenderBytes.OUTPUT_KEY_CLASS);
+	    job.setOutputValueClass(R6_CalenderBytes.OUTPUT_VALUE_CLASS);
 	} else {
 	    System.out.println("Unrecognized job: " + otherArgs[0]);
 	    System.exit(-1);
