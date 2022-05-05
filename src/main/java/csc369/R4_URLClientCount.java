@@ -23,7 +23,7 @@ public class R4_URLClientCount {
 			   Context context) throws IOException, InterruptedException {
 	    String[] sa = value.toString().split(" ");
 
-        String url = "/razor.html";
+        String url = "/cgi-bin/mailgraph2.cgi";
         if (url.equals(sa[6])) {
             Text hostname = new Text();
             hostname.set(sa[0]);
