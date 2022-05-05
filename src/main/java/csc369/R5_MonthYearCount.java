@@ -22,9 +22,11 @@ public class R5_MonthYearCount {
 	protected void map(LongWritable key, Text value,
 			   Context context) throws IOException, InterruptedException {
 	    String[] sa = value.toString().split(" ");
-	    Text http = new Text();
-	    http.set(sa[4]);
-	    context.write(http, one);
+	    Text month_year = new Text();
+
+        String[] sa2 = sa[3].split(":")[0].split("/")[1];
+	    month_year.set(sa2);
+	    context.write(month_year, one);
         }
     }
 
@@ -32,7 +34,7 @@ public class R5_MonthYearCount {
 	private IntWritable result = new IntWritable();
     
         @Override
-	protected void reduce(Text http, Iterable<IntWritable> intOne, Context context) throws IOException, InterruptedException {
+	protected void reduce(Text month_year, Iterable<IntWritable> intOne, Context context) throws IOException, InterruptedException {
             int sum = 0;
             Iterator<IntWritable> itr = intOne.iterator();
         
@@ -40,7 +42,7 @@ public class R5_MonthYearCount {
                 sum  += itr.next().get();
             }
             result.set(sum);
-            context.write(http, result);
+            context.write(month_year, result);
        }
     }
 
