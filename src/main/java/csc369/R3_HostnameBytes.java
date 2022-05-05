@@ -22,7 +22,7 @@ public class R3_HostnameBytes {
 			   Context context) throws IOException, InterruptedException {
 	    String[] sa = value.toString().split(" ");
         String address = "64.242.88.10";
-        if (sa[0] == address) {
+        if (address.equals(sa[0])) {
             Text hostname = new Text();
             hostname.set(sa[0]);
             int int_bytes = Integer.parseInt(sa[9]);
