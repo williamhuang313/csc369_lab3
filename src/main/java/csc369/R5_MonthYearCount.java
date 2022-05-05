@@ -23,7 +23,7 @@ public class R5_MonthYearCount {
 			   Context context) throws IOException, InterruptedException {
 	    String[] sa = value.toString().split(" ");
 	    Text http = new Text();
-	    http.set(sa[4]);
+	    http.set(sa[5]);
 	    context.write(http, one);
         }
     }
