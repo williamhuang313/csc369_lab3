@@ -24,7 +24,8 @@ public class R3_HostnameBytes {
         if (sa[0] == "64.242.88.10") {
             Text hostname = new Text();
             hostname.set(sa[0]);
-            IntWritable bytes = new IntWritable(sa[9]);
+            int int_bytes = Integer.parseInt(sa[9]);
+            IntWritable bytes = new IntWritable(int_bytes);
             context.write(hostname, bytes);
         }
         }
