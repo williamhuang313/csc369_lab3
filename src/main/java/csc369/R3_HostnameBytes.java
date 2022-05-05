@@ -21,12 +21,14 @@ public class R3_HostnameBytes {
 	protected void map(LongWritable key, Text value,
 			   Context context) throws IOException, InterruptedException {
 	    String[] sa = value.toString().split(" ");
-
-        Text hostname = new Text();
-        hostname.set(sa[0]);
-        int int_bytes = Integer.parseInt(sa[9]);
-        IntWritable bytes = new IntWritable(int_bytes);
-        context.write(hostname, bytes);
+        String address = "64.242.88.10";
+        if (sa[0] == address) {
+            Text hostname = new Text();
+            hostname.set(sa[0]);
+            int int_bytes = Integer.parseInt(sa[9]);
+            IntWritable bytes = new IntWritable(int_bytes);
+            context.write(hostname, bytes);
+        }
         }
     }
 
