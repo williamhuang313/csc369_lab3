@@ -24,7 +24,7 @@ public class AscendingSort {
 	    Text identifier = new Text();
 	    identifier.set(sa[0]);
         
-        Text numsort = new Text()
+        Text numsort = new Text();
         numsort.set(sa[1]);
 	    context.write(numsort, identifier);
         }
