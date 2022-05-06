@@ -26,7 +26,7 @@ public class AscendingSort {
 
         int int_numsort = Integer.parseInt(sa[1]);
         IntWritable numsort = new IntWritable(int_numsort);
-	    context.write(identifier, num_sort);
+	    context.write(identifier, numsort);
         }
     }
 
@@ -34,7 +34,7 @@ public class AscendingSort {
     
         @Override
 	protected void reduce(Text identifier, Iterable<IntWritable> numsort, Context context) throws IOException, InterruptedException {
-            Iterator<IntWritable> itr = identifiers.iterator();
+            Iterator<IntWritable> itr = numsort.iterator();
         
             while (itr.hasNext()) {
                  context.write(identifier, itr.next().get());
