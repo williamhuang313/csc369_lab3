@@ -23,21 +23,21 @@ public class AscendingSort {
 	    String[] sa = value.toString().split("\\s+");
 	    Text identifier = new Text();
 	    identifier.set(sa[0]);
-        
-        Text numsort = new Text();
-        numsort.set(sa[1]);
-	    context.write(numsort, identifier);
+
+        int int_numsort = Integer.parseInt(sa[1]);
+        IntWritable numsort = new IntWritable(int_numsort);
+	    context.write(identifier, num_sort);
         }
     }
 
     public static class ReducerImpl extends Reducer<Text, IntWritable, Text, IntWritable> {
     
         @Override
-	protected void reduce(Text numsort, Iterable<Text> identifiers, Context context) throws IOException, InterruptedException {
+	protected void reduce(Text identifier, Iterable<IntWritable> numsort, Context context) throws IOException, InterruptedException {
             Iterator<IntWritable> itr = identifiers.iterator();
         
             while (itr.hasNext()) {
-                 context.write(numsort, itr.next().get());
+                 context.write(identifier, itr.next().get());
             }
        }
     }
