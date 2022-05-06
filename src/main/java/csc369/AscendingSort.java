@@ -24,8 +24,8 @@ public class AscendingSort {
 	    Text identifier = new Text();
 	    identifier.set(sa[0]);
         
-        int int_numsort = Integer.parseInt(sa[1]);
-        IntWritable numsort = new IntWritable(int_numsort); 
+        Text numsort = new Text()
+        numsort.set(sa[1]);
 	    context.write(numsort, identifier);
         }
     }
@@ -33,11 +33,11 @@ public class AscendingSort {
     public static class ReducerImpl extends Reducer<Text, IntWritable, Text, IntWritable> {
     
         @Override
-	protected void reduce(IntWritable numsort, Iterable<Text> identifiers, Context context) throws IOException, InterruptedException {
+	protected void reduce(Text numsort, Iterable<Text> identifiers, Context context) throws IOException, InterruptedException {
             Iterator<IntWritable> itr = identifiers.iterator();
         
             while (itr.hasNext()) {
-                 context.write(itr.next().get(), numsort);
+                 context.write(numsort, itr.next().get());
             }
        }
     }
