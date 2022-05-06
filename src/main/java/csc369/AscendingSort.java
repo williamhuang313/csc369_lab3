@@ -37,7 +37,7 @@ public class AscendingSort {
             Iterator<IntWritable> itr = numsort.iterator();
         
             while (itr.hasNext()) {
-                 context.write(identifier, itr.next().get());
+                 context.write(identifier, itr.next());
             }
        }
     }
